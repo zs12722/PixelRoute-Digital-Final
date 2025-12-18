@@ -1,1 +1,423 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelRoute Digital | Digitale & administrative Unterstützung</title>
 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #0A0A0A;
+      --accent-glow: #7c3aed;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Vercel-style Grid Background */
+    .grid-bg {
+      background-size: 40px 40px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    }
+
+    /* Animated Gradient Blob */
+    .gradient-blob {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, rgba(124, 58, 237, 0.05) 40%, transparent 70%);
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      filter: blur(60px);
+      z-index: 0;
+      animation: pulse-blob 8s infinite alternate;
+    }
+
+    @keyframes pulse-blob {
+      0% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+      100% { opacity: 0.5; transform: translateX(-50%) scale(1.1); }
+    }
+
+    /* Card Hover Effects */
+    .service-card {
+      background: linear-gradient(rgba(255,255,255,0.03), rgba(255,255,255,0));
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px -10px rgba(124, 58, 237, 0.3);
+    }
+
+    /* Text Gradients */
+    .text-gradient {
+      background: linear-gradient(to right, #fff, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Button Glow */
+    .btn-glow:hover {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0A0A0A; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 top-0 border-b border-white/10 bg-[#0A0A0A]/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold">P</div>
+        <span class="font-semibold text-lg tracking-tight">PixelRoute</span>
+      </div>
+
+      <div class="hidden md:flex gap-8 text-sm text-gray-400">
+        <a href="#services" class="hover:text-white transition-colors">Leistungen</a>
+        <a href="#how-it-works" class="hover:text-white transition-colors">So funktioniert’s</a>
+        <a href="#testimonials" class="hover:text-white transition-colors">Bewertungen</a>
+      </div>
+
+      <a href="#contact" class="px-4 py-2 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-200 transition-colors">
+        Kontakt aufnehmen
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 overflow-hidden min-h-screen flex flex-col justify-center">
+    <div class="grid-bg absolute inset-0 z-0"></div>
+    <div class="gradient-blob"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-blue-300 mb-8 backdrop-blur-sm">
+        <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+        Jetzt neue Anfragen in Deutschland möglich
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+        Deutsche Bürokratie verstehen <br>
+        <span class="text-gradient">ohne Stress.</span>
+      </h1>
+
+      <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Praktische Unterstützung bei Papierkram und digitalen Aufgaben – für Privatpersonen und kleine Unternehmen.
+      </p>
+
+      <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+        <a href="#contact" class="btn-glow px-8 py-4 bg-white text-black font-semibold rounded-full transition-all flex items-center gap-2">
+          Support-Termin buchen
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#services" class="px-8 py-4 border border-white/20 text-white hover:bg-white/5 font-medium rounded-full transition-all">
+          Leistungen ansehen
+        </a>
+      </div>
+
+      <p class="mt-6 text-xs text-gray-600 uppercase tracking-wider">
+        *Keine Rechtsberatung • Nur Unterstützung & Erklärung
+      </p>
+    </div>
+  </section>
+
+  <!-- Bento Grid (So funktioniert’s) -->
+  <section id="how-it-works" class="py-20 bg-[#0A0A0A] relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold mb-12 text-center">Warum PixelRoute Digital?</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[500px]">
+
+        <!-- Card 1 -->
+        <div class="md:col-span-2 relative group overflow-hidden rounded-2xl border border-white/10 bg-[#111]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+          <img
+            src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop"
+            alt="Papierkram"
+            class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0"
+          >
+          <div class="absolute bottom-0 left-0 p-8 z-20">
+            <h3 class="text-2xl font-bold mb-2">Papierkram, einfach erklärt.</h3>
+            <p class="text-gray-400">Wir machen „Beamten-Deutsch“ verständlich und zeigen dir die nächsten Schritte.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="relative group overflow-hidden rounded-2xl border border-white/10 bg-[#111] flex flex-col justify-between p-8">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-purple-600/20 blur-3xl rounded-full"></div>
+          <div>
+            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4 text-white">
+              <i data-lucide="smartphone" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold">Digitale Hilfe</h3>
+            <p class="text-sm text-gray-400 mt-2">App-Setups, E-Mail-Einrichtung und Online-Formulare.</p>
+          </div>
+
+          <div class="mt-6 p-4 rounded-lg bg-white/5 border border-dashed border-white/10 text-xs text-gray-500 font-mono">
+            > Formular_abgesendet<br>
+            > Konto_eingerichtet<br>
+            > Status: Erledigt ✅
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="relative group overflow-hidden rounded-2xl border border-white/10 bg-[#111] p-8">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+          <h3 class="text-xl font-bold mb-2">Mehrsprachig</h3>
+          <p class="text-sm text-gray-400">Deutsch, Englisch und Urdu – wir erklären alles verständlich.</p>
+          <div class="mt-4 flex gap-2 flex-wrap">
+            <div class="px-3 py-1 rounded-full bg-white/10 text-xs">Unterstützung</div>
+            <div class="px-3 py-1 rounded-full bg-white/10 text-xs">Erklärung</div>
+            <div class="px-3 py-1 rounded-full bg-white/10 text-xs">Schritt-für-Schritt</div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="md:col-span-2 relative group overflow-hidden rounded-2xl border border-white/10 bg-[#111] p-8 flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white">Deutschland ⇄ Pakistan: Dokumente & Versand (Support)</h3>
+            <p class="text-sm text-gray-400 mt-2 max-w-md">
+              Unterstützung bei Schritten rund um Dokumente, Versand und Ablauf (keine Rechtsberatung).
+            </p>
+          </div>
+          <div class="hidden md:block w-16 h-16 rounded-full border border-white/20 flex items-center justify-center">
+            <i data-lucide="plane" class="w-6 h-6 text-gray-400"></i>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="relative group overflow-hidden rounded-2xl border border-white/10 bg-[#111] p-8">
+          <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4 text-white">
+            <i data-lucide="bike" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Kurier- & Lieferdienst</h3>
+          <p class="text-sm text-gray-400">
+            Abholung, Lieferung und Sendungsverfolgung – schnell und zuverlässig.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="relative group overflow-hidden rounded-2xl border border-white/10 bg-[#111] p-8">
+          <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4 text-white">
+            <i data-lucide="layout-template" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Website, Flyer, Speisekarte & Logo</h3>
+          <p class="text-sm text-gray-400">
+            Unterstützung für kleine lokale Unternehmen: Inhalte, Design-Material und Online-Präsenz.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mt-12 text-center text-sm text-gray-500">
+        Kein Fachchinesisch. Klare Schritte, direkte Hilfe.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section id="services" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mb-16">
+        <h2 class="text-4xl font-bold mb-4">Unsere Leistungen</h2>
+        <p class="text-gray-400">Klare, praktische Hilfe für Alltag, Büro und digitale Aufgaben.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="service-card p-6 rounded-xl">
+          <i data-lucide="mail" class="w-8 h-8 text-blue-400 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-2">Hilfe bei deutschen Briefen</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Brief vom Amt, Jobcenter oder Versicherung? Wir erklären verständlich, worum es geht und welche Schritte sinnvoll sind.
+          </p>
+        </div>
+
+        <div class="service-card p-6 rounded-xl">
+          <i data-lucide="file-text" class="w-8 h-8 text-purple-400 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-2">Formularservice (online & Papier)</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Schritt-für-Schritt Unterstützung beim Ausfüllen von Formularen und Online-Anträgen (ohne Rechtsberatung).
+          </p>
+        </div>
+
+        <div class="service-card p-6 rounded-xl">
+          <i data-lucide="briefcase" class="w-8 h-8 text-pink-400 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-2">Bewerbung & Lebenslauf</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Lebenslauf nach deutschem Standard, Bewerbungen vorbereiten und Hilfe bei Job-Portalen.
+          </p>
+        </div>
+
+        <div class="service-card p-6 rounded-xl">
+          <i data-lucide="globe" class="w-8 h-8 text-indigo-400 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-2">Web & Business Design</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Website-Inhalte, Flyer, Speisekarten, Logo und einfache Online-Präsenz (kein Full-Service-Marketing).
+          </p>
+        </div>
+
+        <div class="service-card p-6 rounded-xl">
+          <i data-lucide="package" class="w-8 h-8 text-emerald-400 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-2">Kurier- & Lieferdienst</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Abholung, Lieferung und Sendungsverfolgung. Auf Wunsch Koordination und Status-Updates.
+          </p>
+        </div>
+
+        <div class="service-card p-6 rounded-xl">
+          <i data-lucide="monitor" class="w-8 h-8 text-orange-400 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-2">Allgemeine digitale Hilfe</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            E-Mail-Einrichtung, Konten/Apps, Passwort-Reset Hilfe und digitale Alltagsaufgaben.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#1a1a1a]"></div>
+
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <h2 class="text-center text-3xl font-semibold mb-12 text-white/90">Kundenstimmen</h2>
+
+      <div class="bg-[#F0EAE0] rounded-3xl p-8 md:p-12 text-gray-900 shadow-2xl">
+        <div class="grid grid-cols-1 gap-8">
+
+          <div class="flex flex-col md:flex-row gap-4 items-start">
+            <div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Kunde" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <p class="text-lg leading-relaxed text-gray-800 italic">
+                „Große Hilfe beim Verstehen meiner Briefe und beim Ausfüllen von Formularen. Alles wurde einfach erklärt.“
+              </p>
+              <p class="mt-2 font-bold text-sm text-gray-600">— Hussein</p>
+            </div>
+          </div>
+
+          <hr class="border-gray-300">
+
+          <div class="flex flex-col md:flex-row gap-4 items-start">
+            <div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Kundin" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <p class="text-lg leading-relaxed text-gray-800 italic">
+                „Sehr einfache und verständliche Unterstützung. Ich habe mich direkt sicherer gefühlt.“
+              </p>
+              <p class="mt-2 font-bold text-sm text-gray-600">— Lara</p>
+            </div>
+          </div>
+
+          <hr class="border-gray-300">
+
+          <div class="flex flex-col md:flex-row gap-4 items-start">
+            <div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop" alt="Kunde" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <p class="text-lg leading-relaxed text-gray-800 italic">
+                „پاکستان کے لیے دستاویزات کے عمل میں رہنمائی بہت مفید تھی۔ بہترین سروس۔“
+              </p>
+              <p class="mt-2 font-bold text-sm text-gray-600">— Ali</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contact -->
+  <footer id="contact" class="pt-20 pb-10 border-t border-white/10 bg-[#050505]">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+
+      <h2 class="text-4xl font-bold mb-6 text-white">Bereit, Ordnung reinzubringen?</h2>
+      <p class="text-gray-400 mb-8 max-w-lg mx-auto">
+        Schreib uns kurz oder buche einen kurzen Termin. Wir klären dein Anliegen und zeigen dir die nächsten Schritte.
+      </p>
+
+      <div class="flex flex-col md:flex-row gap-4 justify-center mb-16">
+        <a href="https://wa.me/" class="bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          WhatsApp schreiben
+        </a>
+        <a href="mailto:zs12722@gmail.com" class="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+          E-Mail senden
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-left border-t border-white/10 pt-10 text-sm">
+        <div class="col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-6 h-6 rounded bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">P</div>
+            <span class="font-semibold text-white">PixelRoute Digital</span>
+          </div>
+          <p class="text-gray-500 max-w-xs">
+            Standort: Jettingen-Scheppach (Deutschland)<br>
+            Gewerblich registrierter Dienstleister.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold mb-3">Leistungen</h4>
+          <ul class="space-y-2 text-gray-500">
+            <li>Briefhilfe</li>
+            <li>Formularservice</li>
+            <li>Digitale Hilfe</li>
+            <li>Kurier & Lieferung</li>
+            <li>Design-Material</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold mb-3">Rechtliches</h4>
+          <ul class="space-y-2 text-gray-500">
+            <li>Impressum</li>
+            <li>Datenschutz</li>
+            <li>AGB</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-white/5 text-center">
+        <p class="text-xs text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <strong>Hinweis:</strong> PixelRoute Digital ist ein gewerblicher Dienstleister. Wir sind <strong>keine</strong> Rechtsanwaltskanzlei, <strong>keine</strong> Steuerberatung und <strong>keine</strong> Behörde. Wir bieten keine Rechts- oder Steuerberatung und keine Rechtsvertretung an. Wir unterstützen ausschließlich durch Erklärung, Organisation und praktische Hilfe (Support).
+        </p>
+        <p class="text-xs text-gray-700 mt-4">
+          &copy; 2025 PixelRoute Digital. Alle Rechte vorbehalten.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
